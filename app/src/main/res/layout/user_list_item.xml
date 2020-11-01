@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isViewPost"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="user"
+            type="com.lupesoft.pruebadeingreso.data.user.UserVo" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_side_margin"
+        android:layout_marginEnd="@dimen/card_side_margin"
+        android:onClick="@{clickListener}"
+        android:layout_marginBottom="@dimen/card_bottom_margin"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/user_item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:gravity="center_vertical"
+                android:text="@{user.name}"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Leanne Graham" />
+
+            <TextView
+                android:id="@+id/user_item_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="@{user.phone}"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
+                app:drawableStartCompat="@drawable/ic_phone_local"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_item_name"
+                tools:text="+57 213654789" />
+
+            <TextView
+                android:id="@+id/user_item_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="@{user.email}"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
+                app:drawableStartCompat="@drawable/ic_email"
+                app:layout_constraintBottom_toTopOf="@+id/user_item_view_posts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_item_phone"
+                app:layout_constraintVertical_bias="0"
+                tools:text="leanne@correo.com" />
+
+            <TextView
+                android:id="@+id/user_item_view_posts"
+                isGone="@{isViewPost}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:text="@string/see_posts"
+                android:textAlignment="viewEnd"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/colorAccent"
+                android:padding="9dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_item_email"
+                tools:text="VER PUBLICACIONES" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

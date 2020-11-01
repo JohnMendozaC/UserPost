@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listPost"
+            type="java.util.List&lt;com.lupesoft.pruebadeingreso.data.post.Post>" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/user_item"
+            layout="@layout/user_list_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="?android:textAppearanceLarge"
+            isGone="@{(listPost.size() > 0)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:text="@string/list_is_empty"
+            android:textColor="@color/colorAccent"
+            app:drawableStartCompat="@drawable/ic_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_posts_list"
+            isGone="@{(listPost.size() == 0)}"
+            setDataPost="@{listPost}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/card_side_margin"
+            android:paddingTop="@dimen/header_margin"
+            android:paddingEnd="@dimen/card_side_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_item"
+            tools:context="com.lupesoft.pruebadeingreso.MainActivity"
+            tools:listitem="@layout/post_list_item" />
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/loader"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
