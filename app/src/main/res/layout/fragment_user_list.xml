@@ -41,6 +41,8 @@
             android:drawablePadding="5dp"
             android:text="@string/list_is_empty"
             android:textColor="@color/colorAccent"
+            android:visibility="gone"
+            app:layout_constraintVertical_bias="0.30"
             app:drawableStartCompat="@drawable/ic_info"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +59,7 @@
             android:paddingStart="@dimen/card_side_margin"
             android:paddingTop="@dimen/header_margin"
             android:paddingEnd="@dimen/card_side_margin"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_user"
@@ -66,6 +69,7 @@
         <include
             android:id="@+id/loader"
             layout="@layout/loader"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
